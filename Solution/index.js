@@ -112,8 +112,11 @@ function Quiz(qaPairArray){
         
         let currentObject = this;
 
-        document.getElementById("restartBtn").onclick = function(event){
-            
+        document.getElementById("restartBtn").onclick = function(){
+            currentObject.retest();
+        }
+
+        this.retest = function(){
             document.getElementById("quiz").innerHTML =
             `<h1>Javascript Quiz</h1>
             <hr style="margin-bottom: 20px">
@@ -131,11 +134,10 @@ function Quiz(qaPairArray){
             <footer>
                 <p id="progress">Question x of y</p>
             </footer>`;
-
-            currentObject.pageIndex = 0;
-            currentObject.score = 0;
-            currentObject.load();
-
+            
+            this.pageIndex = 0;
+            this.score = 0;
+            this.load();
         }
     }
 }
